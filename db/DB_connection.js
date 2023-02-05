@@ -10,7 +10,7 @@ module.exports = new function DB_connection() {
         max: 20,
         idleTimeoutMillis: 30000,
         connectionTimeoutMillis: 2000,
-        ssl: true
+        ssl: CONFIG.DB.ssl
     })
 
     this.query = (query) => new Promise((resolve, reject) => {

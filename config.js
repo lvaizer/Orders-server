@@ -4,7 +4,8 @@ const prod = {
         password: 'ESIivy1zESBfp8oPmMMkVytKMRfSMAvg',
         port: '5432',
         user: 'app',
-        database: 'orders_db_lyyc'
+        database: 'orders_db_lyyc',
+        ssl: false
     }
 };
 const dev = {
@@ -13,7 +14,8 @@ const dev = {
         password: 'ESIivy1zESBfp8oPmMMkVytKMRfSMAvg',
         port: '5432',
         user: 'app',
-        database: 'orders_db_lyyc'
+        database: 'orders_db_lyyc',
+        ssl: true
     }
 };
 const stage = {
@@ -22,7 +24,8 @@ const stage = {
         password: 'ESIivy1zESBfp8oPmMMkVytKMRfSMAvg',
         port: '5432',
         user: 'app',
-        database: 'orders_db_lyyc'
+        database: 'orders_db_lyyc',
+        ssl: false
     }
 };
 
