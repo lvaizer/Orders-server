@@ -1,6 +1,6 @@
 const prod = {
     DB: {
-        host: 'dpg-cfdrv1o2i3mmlo43u1hg-a.oregon-postgres.render.com',
+        host: 'dpg-cfdrv1o2i3mmlo43u1hg-a',
         password: 'ESIivy1zESBfp8oPmMMkVytKMRfSMAvg',
         port: '5432',
         user: 'app',
