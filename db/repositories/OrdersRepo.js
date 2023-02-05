@@ -7,10 +7,8 @@ module.exports.getAllOrders = () => {
 
 module.exports.getOrders = ({year, month, day}) => {
     let query = 'SELECT * FROM "orders" WHERE date_part(\'year\',"date") = ' + year;
-    if(month)query=query.concat(' AND date_part(\'month\',"date") = ' + month)
-    if(day)query=query.concat(' AND date_part(\'day\',"date") = ' + day)
-    query = query.concat(' AND "archive" = false')
-    console.log(query)
+    if (month) query = query.concat(' AND date_part(\'month\',"date") = ' + month);
+    if (day) query = query.concat(' AND date_part(\'day\',"date") = ' + day);
+    query = query.concat(' AND "archive" = false');
     return DB_Connection.query(query);
 };
-
