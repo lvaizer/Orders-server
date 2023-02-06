@@ -3,7 +3,7 @@ module.exports = function responseObj(data, err) {
     return JSON.stringify({
             statusCode: (err ? isNaN(err) ? 500 : err : 200),
             status: !err,
-            message: err ? err : data
+            message: (err ? err : data)
         }
     )
 }
