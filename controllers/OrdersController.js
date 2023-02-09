@@ -1,4 +1,3 @@
-const Order = require('../models/Order');
 const Orders = require('../collections/Orders');
 
 module.exports = new function OrdersController() {

@@ -11,12 +11,12 @@ const prod = {
 
 const dev = {
     DB: {
-        host: 'dpg-cfdrv1o2i3mmlo43u1hg-a.oregon-postgres.render.com',
-        password: 'ESIivy1zESBfp8oPmMMkVytKMRfSMAvg',
+        host: 'localhost',
+        password: 'LIRONv@1zer',
         port: '5432',
-        user: 'app',
-        database: 'orders_db_lyyc',
-        ssl: true
+        user: 'postgres',
+        database: 'postgres',
+        ssl: false
     }
 };
 
