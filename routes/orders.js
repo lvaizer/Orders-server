@@ -25,4 +25,38 @@ router.get('/:year/:month/:day', function (req, res) {
         .finally(() => res.end());
 });
 
+router.post('/new/order', function (req, res) {
+    Controller.createNewOrder(req)
+        .then(data => {
+            res.write(responseObj(data, null))
+        })
+        .catch(err => {
+            res.write(responseObj(null, err))
+        })
+        .finally(() => res.end());
+});
+
+router.post('/update', function (req, res) {
+    Controller.updateOrder(req)
+        .then(data => {
+            res.write(responseObj(data, null))
+        })
+        .catch(err => {
+            res.write(responseObj(null, err))
+        })
+        .finally(() => res.end());
+});
+
+router.post('/delete', function (req, res) {
+    Controller.deleteOrder(req)
+        .then(data => {
+            res.write(responseObj(data, null))
+        })
+        .catch(err => {
+            res.write(responseObj(null, err))
+        })
+        .finally(() => res.end());
+});
+
+
 module.exports = router;

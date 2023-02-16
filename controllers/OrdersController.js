@@ -1,3 +1,4 @@
+const Order = require('../models/Order');
 const Orders = require('../collections/Orders');
 
 module.exports = new function OrdersController() {
@@ -12,6 +13,36 @@ module.exports = new function OrdersController() {
             .catch(e => reject(e));
     });
 
+    this.createNewOrder = (req) => new Promise((resolve, reject) => {
+        if (!req.body) {
+            reject(401);
+            return;
+        }
+        Order.createNewOrder(req.body)
+            .then(data => resolve("success"))
+            .catch(e => reject(e));
+    });
+
+    this.updateOrder = (req) => new Promise((resolve, reject) => {
+        if (!req.body) {
+            reject(401);
+            return;
+        }
+        Order.updateOrder(req.body)
+            .then(data => resolve("success"))
+            .catch(e => reject(e));
+    });
+
+    this.deleteOrder = (req) => new Promise((resolve, reject) => {
+        if (!req.body) {
+            reject(401);
+            return;
+        }
+        Order.deleteOrder(req.body)
+            .then(data => resolve("success"))
+            .catch(e => reject(e));
+    });
+
     function sortDates(data) {
         const dates = {};
         if (!data) return dates;
@@ -23,12 +54,12 @@ module.exports = new function OrdersController() {
             const monthName = date.toLocaleString('default', {month: 'long'});
             const dayName = date.toLocaleString('default', {weekday: 'long'});
             if (!dates[year]) {
-                dates[year] = {[month]: {name: monthName, days: {[day]: {name:dayName}}}};
+                dates[year] = {[month]: {name: monthName, days: {[day]: {name: dayName}}}};
             } else {
                 if (!dates[year][month]) {
-                    dates[year][month] = {name: monthName, days: {[day]: {name:dayName}}};
+                    dates[year][month] = {name: monthName, days: {[day]: {name: dayName}}};
                 } else {
-                    if (!dates[year][month].days[day]) dates[year][month].days[day] = {name:dayName};
+                    if (!dates[year][month].days[day]) dates[year][month].days[day] = {name: dayName};
                 }
             }
         });
