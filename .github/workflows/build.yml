@@ -16,6 +16,7 @@ jobs:
           script: |
             cd /var/www/html/orders_server
             git pull origin main
+            npm install
             NODE_ENV=prod
             npm start
 
