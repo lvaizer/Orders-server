@@ -7,9 +7,6 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy Node.js App
-      - uses: actions/checkout@v2
-        run: npm install
       - name: Deploy to DigitalOcean
         uses: appleboy/ssh-action@master
         with:
