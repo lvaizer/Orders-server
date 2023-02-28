@@ -1,11 +1,11 @@
 const prod = {
     DB: {
-        host: 'postgres://app:ESIivy1zESBfp8oPmMMkVytKMRfSMAvg@dpg-cfdrv1o2i3mmlo43u1hg-a.oregon-postgres.render.com',
+        host: 'dpg-cfdrv1o2i3mmlo43u1hg-a.oregon-postgres.render.com',
         password: 'ESIivy1zESBfp8oPmMMkVytKMRfSMAvg',
         port: '5432',
         user: 'app',
         database: 'orders_db_lyyc',
-        ssl: false
+        ssl: true
     }
 };
 
