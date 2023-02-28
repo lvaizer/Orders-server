@@ -18,5 +18,6 @@ jobs:
             git pull origin main
             npm install
             NODE_ENV=prod
+            fuser -k 3002/tcp
             npm start
 
