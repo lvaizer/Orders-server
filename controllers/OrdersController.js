@@ -5,7 +5,15 @@ module.exports = new function OrdersController() {
 
     this.getAllOrders = () => Orders.getAllOrders();
 
-    this.getOrdersByDate = params => Orders.getOrdersByDate(params);
+    this.getOrdersByDate = params => new Promise((resolve, reject) => {
+        if (!params.year) {
+            reject(403);
+            return;
+        }
+        Order.getOrdersByDate(params)
+            .then(data => resolve(data))
+            .catch(e => reject(e));
+    });
 
     this.getOrdersDates = () => new Promise((resolve, reject) => {
         Orders.getAllOrdersDates()

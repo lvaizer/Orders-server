@@ -8,17 +8,11 @@ const ordersRouter = require('./routes/orders');
 
 const app = express();
 const skip = (req, res) => res.statusCode <= 200;
-const corsOptions = {
-    origin: [
-        'https://swapee-api.herokuapp.com/',
-        'http://localhost:3000',
-        'https://swapee-interface.vercel.app/',
-        'https://app.swapee.io',
-    ],
-};
+
 app.use(cors({
     origin: '*'
 }));
+
 app.use(logger('dev', {skip: skip}));
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
