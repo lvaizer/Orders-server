@@ -6,10 +6,11 @@ module.exports = new function OrdersController() {
     this.getAllOrders = () => Orders.getAllOrders();
 
     this.getOrdersByDate = params => new Promise((resolve, reject) => {
-        if (!params.year||!params.month||!params.day) {
+        if (!params.year || !params.month || !params.day) {
             reject(403);
             return;
         }
+        console.log(params)
         Orders.getOrdersByDate(params)
             .then(data => resolve(data))
             .catch(e => reject(e));
