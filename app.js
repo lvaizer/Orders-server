@@ -13,6 +13,7 @@ const skip = (req, res) => res.statusCode <= 200;
 app.use((req,res,next)=>{
     console.log(req.headers.origin);
     console.log(res.headers)
+    res.header("Access-Control-Allow-Method", "GET,POST");
     next();
 })
 app.use(logger('dev', {skip: skip}));
