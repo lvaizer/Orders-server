@@ -6,7 +6,7 @@ module.exports = new function OrdersController() {
     this.getAllOrders = () => Orders.getAllOrders();
 
     this.getOrdersByDate = params => new Promise((resolve, reject) => {
-        if (!params.year) {
+        if (!params.year||!params.month||!params.day) {
             reject(403);
             return;
         }
