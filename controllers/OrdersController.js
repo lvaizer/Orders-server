@@ -10,7 +10,7 @@ module.exports = new function OrdersController() {
             reject(403);
             return;
         }
-        Order.getOrdersByDate(params)
+        Orders.getOrdersByDate(params)
             .then(data => resolve(data))
             .catch(e => reject(e));
     });
