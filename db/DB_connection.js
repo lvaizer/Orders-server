@@ -15,13 +15,9 @@ module.exports = new function DB_connection() {
     this.query = (query) => new Promise((resolve, reject) => {
         pool.connect()
             .then(client => {
-
                 client.query(query)
                     .then(res => resolve(res.rows))
-                    .catch(err => {
-                        console.log(err)
-                        reject(err.message)
-                    })
+                    .catch(err => reject(err.message))
                     .finally(() => client.release())
             })
             .catch(err => reject(err));

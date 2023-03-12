@@ -10,7 +10,6 @@ module.exports = new function OrdersController() {
             reject(403);
             return;
         }
-        console.log(params)
         Orders.getOrdersByDate(params)
             .then(data => resolve(data))
             .catch(e => reject(e));
@@ -28,7 +27,7 @@ module.exports = new function OrdersController() {
             return;
         }
         Order.createNewOrder(req.body)
-            .then(data => resolve("success"))
+            .then(_ => resolve("success"))
             .catch(e => reject(e));
     });
 
@@ -38,7 +37,7 @@ module.exports = new function OrdersController() {
             return;
         }
         Order.updateOrder(req.body)
-            .then(data => resolve("success"))
+            .then(_ => resolve("success"))
             .catch(e => reject(e));
     });
 
@@ -48,7 +47,7 @@ module.exports = new function OrdersController() {
             return;
         }
         Order.deleteOrder(req.body)
-            .then(data => resolve("success"))
+            .then(_ => resolve("success"))
             .catch(e => reject(e));
     });
 

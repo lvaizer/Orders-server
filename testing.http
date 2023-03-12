@@ -1,4 +1,0 @@
-GET http://localhost:3002/orders/dates
-###
-GET http://localhost:3002/orders/2023/4/22
-###
