@@ -4,51 +4,27 @@ const Controller = require('../controllers/OrdersController');
 const responseObj = require('../ResponseObj');
 
 router.get('/dates', function (req, res) {
-    Controller.getOrdersDates()
-        .then(data => {
-            res.write(responseObj(data, null))
-        })
-        .catch(err => {
-            res.write(responseObj(null, err))
-        })
-        .finally(() => res.end());
+    useAndSend(res, Controller.getOrdersDates);
 });
 
 router.get('/:year/:month/:day', function (req, res) {
-    Controller.getOrdersByDate(req.params)
-        .then(data => {
-            res.write(responseObj(data, null))
-        })
-        .catch(err => {
-            res.write(responseObj(null, err))
-        })
-        .finally(() => res.end());
+    useAndSend(res, Controller.getOrdersByDate, req.params);
 });
 
 router.post('/new/order', function (req, res) {
-    Controller.createNewOrder(req)
-        .then(data => {
-            res.write(responseObj(data, null))
-        })
-        .catch(err => {
-            res.write(responseObj(null, err))
-        })
-        .finally(() => res.end());
+    useAndSend(res, Controller.createNewOrder, req);
 });
 
 router.post('/update', function (req, res) {
-    Controller.updateOrder(req)
-        .then(data => {
-            res.write(responseObj(data, null))
-        })
-        .catch(err => {
-            res.write(responseObj(null, err))
-        })
-        .finally(() => res.end());
+    useAndSend(res, Controller.updateOrder, req);
 });
 
 router.post('/delete', function (req, res) {
-    Controller.deleteOrder(req)
+    useAndSend(res, Controller.deleteOrder, req);
+});
+
+function useAndSend(res, promise, params) {
+    promise(params)
         .then(data => {
             res.write(responseObj(data, null))
         })
@@ -56,7 +32,7 @@ router.post('/delete', function (req, res) {
             res.write(responseObj(null, err))
         })
         .finally(() => res.end());
-});
+}
 
 
 module.exports = router;
