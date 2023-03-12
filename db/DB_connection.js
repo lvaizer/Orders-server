@@ -2,17 +2,16 @@ const {Pool} = require('pg')
 
 module.exports = new function DB_connection() {
     const pool = new Pool({
-        host: CONFIG.DB.host,
-        password: CONFIG.DB.password,
-        port: CONFIG.DB.port,
-        user: CONFIG.DB.user,
-        database: CONFIG.DB.database,
+        host: process.env.DB_HOST,
+        password: process.env.DB_PASSWORD,
+        port: process.env.DB_PORT,
+        user: process.env.DB_USER,
+        database: process.env.DB_DATABASE,
         max: 20,
         idleTimeoutMillis: 30000,
         connectionTimeoutMillis: 2000,
-        ssl: CONFIG.DB.ssl
+        ssl: process.env.DB_SSL
     })
-
     this.query = (query) => new Promise((resolve, reject) => {
         pool.connect()
             .then(client => {
